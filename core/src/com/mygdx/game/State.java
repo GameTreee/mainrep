@@ -11,12 +11,12 @@ public abstract class State {
 
     protected OrthographicCamera camera;
     protected Vector3 mouse;
+    protected StateManager sm;
 
-
-    public State(){
+    public State(StateManager sm){
         camera=new OrthographicCamera();
         mouse=new Vector3();
-
+        this.sm=sm;
     }
 
     protected abstract void handleInput();
