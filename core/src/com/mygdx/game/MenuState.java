@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -21,19 +22,21 @@ public class MenuState extends State {
     private Rectangle startRect,exitRect;
     public MenuState(StateManager sm){
         super(sm);
-        bg=new Texture("bg.png");
-        buttons=new Texture("buttons.png");
+        bg=new Texture("android/assets/bg.png");
+        buttons=new Texture("android/assets/buttons.png");
         startBtn=new TextureRegion(buttons,0,0,600,150);
         exitBtn=new TextureRegion(buttons,0,150,600,150);
     }
     @Override
     protected void handleInput() {
-
+        if (Gdx.input.isTouched()){
+            System.out.println("Touched");
+        }
     }
 
     @Override
     public void update(float dt) {
-
+        handleInput();
     }
 
     @Override
@@ -52,6 +55,8 @@ public class MenuState extends State {
 
     @Override
     public void dispose() {
+        bg.dispose();
+        buttons.dispose();
 
     }
 }
