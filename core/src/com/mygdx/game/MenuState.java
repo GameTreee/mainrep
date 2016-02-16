@@ -15,15 +15,15 @@ import java.security.Key;
 public class MenuState extends State {
 
 
-
     private Texture bg;
     private Texture buttons;
     private TextureRegion startBtn,exitBtn;
     private Rectangle startRect,exitRect;
     public MenuState(StateManager sm){
         super(sm);
-        bg=new Texture("android/assets/bg.png");
-        buttons=new Texture("android/assets/buttons.png");
+
+        buttons=new Texture("buttons.png");
+        bg=new Texture("bg.png");
         startBtn=new TextureRegion(buttons,0,0,600,150);
         exitBtn=new TextureRegion(buttons,0,150,600,150);
     }
@@ -31,6 +31,7 @@ public class MenuState extends State {
     protected void handleInput() {
         if (Gdx.input.isTouched()){
             System.out.println("Touched");
+            this.sm.pop();
         }
     }
 

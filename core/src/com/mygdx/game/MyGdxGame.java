@@ -18,7 +18,8 @@ public class MyGdxGame extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		sm=new StateManager();
 		Gdx.gl.glClearColor(0.35f, 0.33f, 0.87f, 1);
-		Gdx.graphics.setWindowedMode(WIDTH,HEIGHT);
+		Gdx.graphics.setWindowedMode(WIDTH, HEIGHT);
+		sm.push(new GameState(sm));
 		sm.push(new MenuState(sm));
 	}
 
